@@ -1,0 +1,156 @@
+export type LinkItem = {
+  label: string
+  href: string
+  kind: 'email' | 'github' | 'blog' | 'linkedin' | 'resume' | 'external'
+}
+
+export type SkillGroup = {
+  title: string
+  items: string[]
+}
+
+export type ExperienceItem = {
+  role: string
+  period: string
+  company: string
+  summary: string
+  tags: string[]
+}
+
+export type ProjectCase = {
+  title: string
+  period?: string
+  summary: string
+  context: string
+  role: string
+  decisions: string[]
+  stack: string[]
+  representation: string[]
+}
+
+export type CertificationItem = {
+  name: string
+  issuer: string
+  acquiredAt: string
+  visibility: 'confirmed' | 'needs-confirmation'
+}
+
+export const profile = {
+  publicName: 'Peppearl',
+  role: 'Frontend Engineer',
+  career: '3 years',
+  headline: '제품의 완성도를 높이는 프론트엔드 개발자',
+  positioning:
+    '지속 가능한 디자인 시스템과 확장성 있는 아키텍처로 제품의 완성도를 높이는 프론트엔드 개발자',
+  description:
+    '디자인 시스템, 확장 가능한 아키텍처, AI Agent 활용 워크플로우를 바탕으로 복잡한 서비스를 안정적이고 세련되게 구현합니다.',
+  email: 'jinjoo648@naver.com',
+  photoPolicy: 'dog-photo-only-small',
+} as const
+
+export const links = [
+  {
+    label: 'Email',
+    href: 'mailto:jinjoo648@naver.com',
+    kind: 'email',
+  },
+  {
+    label: 'GitHub',
+    href: 'https://github.com/pep-pearl',
+    kind: 'github',
+  },
+  {
+    label: 'Blog',
+    href: 'https://jinjoo648.tistory.com/',
+    kind: 'blog',
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/nojam2ya',
+    kind: 'linkedin',
+  },
+  {
+    label: 'Resume PDF',
+    href: '/이혜주_FrontendEngineer.pdf',
+    kind: 'resume',
+  },
+] as const satisfies readonly LinkItem[]
+
+export const skills = [
+  {
+    title: 'Frontend',
+    items: ['React', 'TypeScript', 'JavaScript', 'Vite', 'TailwindCSS', 'styled-components', 'Headless UI'],
+  },
+  {
+    title: 'Architecture',
+    items: ['Feature-Sliced Design', 'pnpm workspace', 'Monorepo', 'Design System'],
+  },
+  {
+    title: 'State and Data',
+    items: ['Zustand', 'Jotai', 'React Query'],
+  },
+  {
+    title: 'Backend Collaboration',
+    items: ['Spring Boot', 'PostgreSQL', 'MyBatis', 'Linux', 'CentOS'],
+  },
+  {
+    title: 'Workflow',
+    items: ['AI Agent Workflow', 'Cursor', 'Antigravity', 'Codex'],
+  },
+] as const satisfies readonly SkillGroup[]
+
+export const experiences = [
+  {
+    role: 'Frontend Engineer',
+    period: '3 years',
+    company: 'content/resume 또는 PDF 기준으로 반영',
+    summary:
+      '재난, GIS, 도로/하천 안전 관련 업무 시스템을 중심으로 React 기반 화면 구현, UI/UX 설계, 프론트엔드 구조 설계, 개발 환경 개선을 경험했습니다.',
+    tags: ['React', 'TypeScript', 'GIS UI', 'Design System', 'Frontend Architecture'],
+  },
+] as const satisfies readonly ExperienceItem[]
+
+export const projects = [
+  {
+    title: 'Design System & Frontend Architecture',
+    period: '2025.06 - 2026.02',
+    summary:
+      '복잡한 재난관리 플랫폼에서 UI 일관성과 유지보수 가능한 프론트엔드 구조를 함께 정리한 케이스입니다.',
+    context: 'LH 재난관리 플랫폼 구축',
+    role: 'UI/UX 디자인 및 프론트엔드 아키텍처 설계 주도',
+    decisions: ['Feature-Sliced Design', 'pnpm monorepo', 'Headless UI', 'TailwindCSS', 'accessibility-first components'],
+    stack: ['React', 'TypeScript', 'Vite', 'TailwindCSS', 'Headless UI'],
+    representation: ['FSD diagram', 'component state matrix', 'architecture decision cards'],
+  },
+  {
+    title: 'GIS / Disaster Management Platform',
+    period: '2024.06 - 2025.03',
+    summary:
+      '지도, 팝업, 목록, 상세, 필터가 연결되는 GIS 기반 업무 UI의 상태 흐름과 개발 환경을 개선한 케이스입니다.',
+    context: '스마트 하천 안전차단 시스템 Web/Mobile 및 재난 상황관리 시스템',
+    role: '프론트엔드 환경 고도화 및 GIS 서비스 최적화',
+    decisions: ['Vite migration', 'TypeScript adoption', 'API spec', 'createPortal for GIS popup'],
+    stack: ['React', 'TypeScript', 'Vite', 'styled-components'],
+    representation: ['map interaction flow', 'GIS popup render flow', 'public-safe code snippet'],
+  },
+  {
+    title: 'AI Agent Workflow for Frontend Development',
+    period: '2026.02 - 진행중',
+    summary:
+      'AI Agent를 기획, 구현, 리뷰 단계에 구조적으로 연결해 사람이 검토 가능한 산출물을 만드는 작업 방식입니다.',
+    context: '자사 솔루션 고도화 및 R&D, Peppearl career site build process',
+    role: '프론트엔드 아키텍처 설계 및 AI 기반 개발 프로세스 도입',
+    decisions: ['AGENTS.md', 'phase rules', 'prompt templates', 'review gates', 'human approval points'],
+    stack: ['React', 'TypeScript', 'Vite', 'pnpm', 'Cursor', 'Antigravity', 'Codex'],
+    representation: ['workflow timeline', 'phase gate diagram', 'rules and prompts map'],
+  },
+] as const satisfies readonly ProjectCase[]
+
+export const certifications = [
+  {
+    name: 'content/resume 또는 PDF 기준으로 반영',
+    issuer: 'content/resume 또는 PDF 기준으로 반영',
+    acquiredAt: 'content/resume 또는 PDF 기준으로 반영',
+    visibility: 'needs-confirmation',
+  },
+] as const satisfies readonly CertificationItem[]
