@@ -7,7 +7,7 @@
 | Asset             | File / Value                           | 용도                                   | 상태           |
 | ----------------- | -------------------------------------- | -------------------------------------- | -------------- |
 | Public resume PDF | `이혜주_FrontendEngineer.pdf`          | Hero와 Resume section에서 다운로드     | 확정           |
-| Profile image     | `dog_photo.png`                        | About 또는 footer의 작은 프로필 이미지 | 공개 사용 가능 |
+| Profile image     | `dog_photo.png`                        | About의 작은 프로필 이미지             | 공개 사용 가능 |
 | Email             | `jinjoo648@naver.com`                  | primary contact CTA                    | 공개 가능      |
 | GitHub            | `https://github.com/pep-pearl`         | secondary proof link                   | 공개 가능      |
 | Blog              | `https://jinjoo648.tistory.com/`       | secondary link                         | 공개 가능      |
@@ -81,7 +81,14 @@ Context -> Problem -> My Role -> Key Decisions -> Implementation -> What I Learn
 
 ## 디자인/개발 전에 남은 확인 항목
 
-- GitHub Pages 배포 형태: user site인지 project site인지 확인 필요
-- `dog_photo.png` 최종 배치: About 카드, footer, profile chip 중 결정 필요
 - 대표 케이스별 실제 코드 스니펫 필요 여부는 디자인/콘텐츠 구체화 단계에서 판단
 - React Router 없이 원페이지 anchor navigation으로 충분한지 최종 확인 필요
+
+## 확정된 개발 전제
+
+- GitHub Pages 배포 형태: user site `https://pep-pearl.github.io/`
+- Vite `base`: `/`
+- `dog_photo.png` 최종 배치: About의 작은 profile visual
+- v1 motion: CSS transition 중심, Framer Motion 사용 안 함
+- Blog: 공개하되 secondary link, footer, Related Writing 수준으로만 사용
+- `lh_dmp` 실제 경로/파일명은 인용하지 않고 public-safe 추상 구조 다이어그램만 사용

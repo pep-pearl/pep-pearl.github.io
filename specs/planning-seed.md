@@ -17,7 +17,7 @@ Primary conversion:
 - Resume PDF download
 
 Secondary conversion:
-- LinkedIn / Wanted / blog visit
+- LinkedIn / blog visit
 - GitHub visit as supporting proof only
 
 ## 3. Target Audience Priority
@@ -100,7 +100,8 @@ Allowed:
 - Alias: Peppearl
 - Email
 - GitHub
-- LinkedIn / Wanted / blog links
+- LinkedIn / blog links
+- Wanted is not used
 - Company names if user provides them
 - Project names if user provides them
 - Code snippets
@@ -226,7 +227,8 @@ Required:
 
 Recommended:
 - React Router only if routes are actually needed
-- Framer Motion for small, controlled microinteractions
+- CSS transitions for small, controlled microinteractions
+- Do not use Framer Motion in v1
 - MD/JSON/TS content config for easy editing
 
 Avoid unless necessary:

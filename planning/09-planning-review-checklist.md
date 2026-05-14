@@ -53,8 +53,8 @@
 
 ## Open Questions Before Design
 
-- [ ] GitHub Pages 배포 형태를 확인해야 한다: user site인지 project site인지.
-- [ ] `dog_photo.png` 최종 배치를 정해야 한다: About, footer, profile chip.
+- [x] GitHub Pages 배포 형태를 확인해야 한다: user site `https://pep-pearl.github.io/`, Vite `base`는 `/`.
+- [x] `dog_photo.png` 최종 배치를 정해야 한다: About의 작은 profile visual.
 - [ ] 대표 케이스별 코드 스니펫 필요 여부를 디자인/콘텐츠 구체화 단계에서 판단해야 한다.
 - [ ] Case 03을 포트폴리오 제작 과정 자체로 보여주는 방향을 사용자에게 한 번 더 확인하면 좋다.
 

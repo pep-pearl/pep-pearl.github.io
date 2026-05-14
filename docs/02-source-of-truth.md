@@ -11,10 +11,11 @@
 - English: Design System, Frontend Architecture, AI Agent Workflow, React, TypeScript처럼 더 명확한 기술 용어에 한해 보조적으로 사용
 - Public contact: 이메일, GitHub, 블로그 링크
 - LinkedIn: `https://www.linkedin.com/in/nojam2ya`
+- Blog: `https://jinjoo648.tistory.com/`를 공개하되 secondary link, footer, Related Writing 수준으로만 사용
 - Wanted: 사용하지 않음
 - Phone: 공개 금지
 - Face photo: 사용 금지
-- Profile visual: `dog_photo.png`를 프로필 이미지처럼 사용할 수 있음. 다만 사이트의 주제가 되지 않게 작게 사용한다.
+- Profile visual: `dog_photo.png`를 About의 작은 profile visual로 사용한다. Hero와 footer에서는 사용하지 않는다.
 - Public resume PDF: 저장소 루트의 `이혜주_FrontendEngineer.pdf`
 
 ## 핵심 포지셔닝
@@ -95,6 +96,7 @@ v1은 원페이지 사이트를 우선한다.
 - Tone: 미니멀 인터랙티브 포트폴리오 60%, 구조화된 커리어 문서 40%
 - Visual mood: minimal, structured, professional, quietly interactive, balanced, refined
 - 강아지 사진은 작은 개인적 요소로만 사용한다.
+- v1 motion은 CSS transition 중심으로 구현하고 Framer Motion은 사용하지 않는다.
 - 반응형은 필수이며 모바일에서 콘텐츠 우선순위가 유지되어야 한다.
 - 과도한 3D, 애니메이션, 글래스모피즘, 포트폴리오 학원 느낌, 공공/SI 느낌은 피한다.
 
@@ -106,6 +108,8 @@ v1은 원페이지 사이트를 우선한다.
 - TailwindCSS
 - GitHub Pages
 - GitHub Actions
+- GitHub Pages 배포 형태: user site `https://pep-pearl.github.io/`
+- Vite `base`: `/`
 
 개발 원칙:
 
@@ -115,6 +119,7 @@ v1은 원페이지 사이트를 우선한다.
 - no global state unless needed
 - no TanStack Query unless remote data exists
 - no routing unless v1 콘텐츠가 실제로 요구함
+- no Framer Motion in v1
 
 ## 중단 조건
 
