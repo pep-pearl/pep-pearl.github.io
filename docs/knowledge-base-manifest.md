@@ -24,6 +24,9 @@
 | `content/resume/resume.codex.md` | Codex가 이해하기 쉬운 구조화된 내부 이력서 원천 자료다. |
 | `content/resume/resume.site.md` | 실제 사이트에 넣을 수 있는 공개용 이력서 카피다. |
 | `content/work/selected-work-source.md` | 대표 포트폴리오 케이스 3개의 원천 자료다. |
+| `content/work/approved-case-evidence.md` | 사용자 코멘트로 승인된 케이스별 근거와 공개 범위를 정리한다. |
+| `content/work/ai-agent-workflow-source.md` | AI Agent Workflow 케이스에 사용할 workflow 원천 자료를 정리한다. |
+| `content/mining/comment-resolution-log.md` | `[comment]`로 추가된 사용자 확인 사항과 반영 상태를 기록한다. |
 
 ## data
 
@@ -36,5 +39,6 @@
 - 새 단계에 들어가기 전 `docs/01-codex-context-map.md`를 확인한다.
 - 공개 웹사이트 카피는 `resume.site.md`를 우선한다.
 - 내부 이해나 구조화가 필요할 때는 `resume.codex.md`를 참고한다.
+- Selected Work를 보강할 때는 `content/work/approved-case-evidence.md`와 `content/work/ai-agent-workflow-source.md`를 함께 확인한다.
 - 확인되지 않은 사실은 `docs/06-open-questions.md`에 남긴다.
 - 전화번호, 얼굴 사진, 업무 화면, Figma 캡처, 검증되지 않은 수치는 공개하지 않는다.
