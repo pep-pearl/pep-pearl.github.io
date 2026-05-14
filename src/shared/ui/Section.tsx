@@ -28,11 +28,11 @@ type SectionHeadingProps = {
 export function SectionHeading({ eyebrow, title, description, id, className = '' }: SectionHeadingProps) {
   return (
     <div className={`mb-8 max-w-3xl ${className}`}>
-      {eyebrow ? <p className="mb-3 text-xs font-semibold uppercase text-accent tracking-[0.08em]">{eyebrow}</p> : null}
+      {eyebrow ? <p className="mb-3 text-xs font-semibold uppercase text-brand tracking-[0.08em]">{eyebrow}</p> : null}
       <h2 id={id} className="text-2xl font-semibold leading-tight text-ink sm:text-3xl">
         {title}
       </h2>
-      {description ? <p className="mt-4 text-base leading-7 text-soft sm:text-lg">{description}</p> : null}
+      {description ? <p className="mt-4 text-base leading-7 text-ink-muted sm:text-lg">{description}</p> : null}
     </div>
   )
 }

@@ -8,7 +8,7 @@ export function ExternalLink({ link, className = '' }: { link: LinkItem; classNa
       rel={link.external ? 'noreferrer' : undefined}
       aria-label={link.external ? `${link.label} 외부 링크 열기` : link.label}
       className={[
-        'inline-flex items-center rounded-xs text-sm font-medium text-soft underline-offset-4 transition duration-200 hover:text-accentStrong hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent',
+        'inline-flex items-center rounded-xs text-sm font-medium text-ink-muted underline-offset-4 transition duration-200 hover:text-brand-dark hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand',
         className,
       ].join(' ')}
     >

@@ -9,11 +9,11 @@ type ButtonLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
 
 const variantClasses: Record<CtaItem['kind'], string> = {
   primary:
-    'border-accent bg-accent text-white shadow-soft hover:border-accentStrong hover:bg-accentStrong focus-visible:outline-accent',
+    'border-brand bg-brand text-white shadow-sm hover:border-brand-dark hover:bg-brand-dark focus-visible:outline-brand',
   secondary:
-    'border-line bg-surface text-ink hover:border-accent hover:text-accentStrong focus-visible:outline-accent',
+    'border-line bg-surface text-ink hover:border-brand hover:text-brand-dark focus-visible:outline-brand',
   subtle:
-    'border-transparent bg-transparent text-soft underline-offset-4 hover:text-accentStrong hover:underline focus-visible:outline-accent',
+    'border-transparent bg-transparent text-ink-muted underline-offset-4 hover:text-brand-dark hover:underline focus-visible:outline-brand',
 }
 
 export function ButtonLink({ children, variant = 'secondary', className = '', ...props }: ButtonLinkProps) {

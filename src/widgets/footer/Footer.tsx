@@ -7,7 +7,7 @@ export function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div>
           <p className="text-sm font-semibold text-ink">{profile.publicName}</p>
-          <p className="text-sm text-soft">{profile.role}</p>
+          <p className="text-sm text-ink-muted">{profile.role}</p>
         </div>
         <div className="flex flex-wrap gap-x-5 gap-y-2" aria-label="Footer links">
           {links.map((link) => (

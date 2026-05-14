@@ -4,47 +4,56 @@ import { ExternalLink } from '../../shared/ui/ExternalLink'
 
 export function HeroSection() {
   return (
-    <section id="top" className="px-4 pb-14 pt-16 sm:px-6 sm:pt-20 lg:px-8 lg:pb-20">
-      <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[minmax(0,1fr)_430px] lg:items-center">
+    <section id="top" className="px-4 pb-14 pt-20 sm:px-6 sm:pt-28 lg:px-8 lg:pb-24">
+      <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-[minmax(0,1fr)_380px] lg:items-center">
         <div className="max-w-3xl section-reveal">
-          <p className="text-sm font-semibold text-accent">{profile.publicName} · {profile.role}</p>
-          <h1 className="mt-5 text-4xl font-semibold leading-tight text-ink sm:text-5xl lg:text-6xl">
-            {profile.headline}
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.1em] text-brand">
+            {profile.publicName} <span className="mx-2 text-line-strong">|</span> {profile.role}
+          </p>
+          <h1 className="text-[clamp(2.5rem,5vw,3.75rem)] font-semibold leading-[1.08] tracking-tight text-ink">
+            {profile.headline.split('\n').map((line, i) => (
+              <span key={i} className="block">{line}</span>
+            ))}
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-soft">{profile.description}</p>
+          <p className="mt-8 max-w-2xl text-lg leading-[1.7] text-ink-muted sm:text-xl">
+            {profile.description}
+          </p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:flex-wrap">
             {heroCtas.map((cta) => (
-              <CtaButton key={cta.label} cta={cta} className="w-full sm:w-auto" />
+              <CtaButton key={cta.label} cta={cta} className="w-full sm:w-auto group" />
             ))}
           </div>
 
-          <div className="mt-7 flex flex-wrap gap-x-5 gap-y-2" aria-label="보조 링크">
+          <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3" aria-label="보조 링크">
             {links.map((link) => (
               <ExternalLink key={link.kind} link={link} />
             ))}
           </div>
         </div>
 
-        <div className="section-reveal rounded-md border border-line bg-surface p-5 shadow-soft" aria-label="핵심 역량 구조 미리보기">
-          <div className="grid gap-3">
-            {['Design System', 'Frontend Architecture', 'AI Agent Workflow'].map((item, index) => (
-              <div key={item} className="flex items-center gap-3 rounded-sm border border-line bg-muted/50 p-3">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accentSoft text-sm font-semibold text-accentStrong">
-                  {index + 1}
-                </span>
-                <div>
-                  <p className="text-sm font-semibold text-ink">{item}</p>
-                  <p className="text-xs text-soft">
-                    {index === 0 ? 'tokens · states · accessibility' : index === 1 ? 'FSD · public API · data boundary' : 'rules · prompts · review gate'}
-                  </p>
+        <div className="section-reveal rounded-[22px] border border-line bg-surface/50 p-6 shadow-sm backdrop-blur-sm lg:p-8" aria-label="핵심 역량 구조 미리보기">
+          <div className="relative flex flex-col gap-8">
+            {/* Connector Line */}
+            <div className="absolute left-[15px] top-4 bottom-4 w-px bg-line-strong/50" aria-hidden="true" />
+            
+            {[
+              { title: 'Design System', desc: 'tokens · states · a11y' },
+              { title: 'Component Architecture', desc: 'FSD · public API · boundaries' },
+              { title: 'Frontend Workflow', desc: 'AI agents · review gates' },
+              { title: 'Product Quality', desc: 'stable · scalable · refined' }
+            ].map((item, index) => (
+              <div key={item.title} className="relative flex items-start gap-5">
+                <div className="relative z-10 flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-full border border-line bg-surface text-[11px] font-mono font-medium text-brand">
+                  0{index + 1}
+                </div>
+                <div className="pt-1">
+                  <p className="text-[15px] font-semibold text-ink">{item.title}</p>
+                  <p className="mt-1 text-[13px] text-ink-muted font-mono">{item.desc}</p>
                 </div>
               </div>
             ))}
           </div>
-          <p className="mt-4 text-sm leading-6 text-soft">
-            업무 화면 대신 구조와 판단이 보이는 다이어그램으로 대표 경험을 설명합니다.
-          </p>
         </div>
       </div>
     </section>

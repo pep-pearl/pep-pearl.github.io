@@ -1,6 +1,6 @@
 export function Tag({ children }: { children: string }) {
   return (
-    <span className="inline-flex rounded-xs border border-line bg-surface px-2.5 py-1 text-xs font-medium text-soft">
+    <span className="inline-flex rounded-xs border border-line bg-surface px-2.5 py-1 text-xs font-medium text-ink-muted">
       {children}
     </span>
   )

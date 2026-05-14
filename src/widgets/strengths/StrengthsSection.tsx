@@ -11,24 +11,35 @@ export function StrengthsSection() {
       />
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {strengths.map((strength) => (
+        {strengths.map((strength, index) => (
           <article
             key={strength.title}
-            className="rounded-md border border-line bg-surface p-5 transition duration-200 hover:border-accent/60 hover:shadow-soft"
+            className="group relative rounded-lg border border-line bg-surface p-6 transition duration-300 hover:border-line-strong hover:shadow-[0_4px_20px_rgba(0,0,0,0.03)]"
           >
-            <h3 className="text-lg font-semibold text-ink">{strength.title}</h3>
-            <p className="mt-3 text-sm leading-6 text-soft">{strength.summary}</p>
-            <ul className="mt-5 space-y-2 text-sm text-soft">
+            {/* Top Connector line & Index */}
+            <div className="mb-5 flex items-center justify-between">
+              <span className="flex h-5 items-center rounded-sm bg-brand/5 px-2 text-[11px] font-mono font-semibold text-brand transition-colors group-hover:bg-brand/10">
+                0{index + 1}
+              </span>
+              <div className="h-px w-10 bg-line transition-colors group-hover:bg-brand/30"></div>
+            </div>
+
+            <h3 className="text-[17px] font-semibold text-ink">{strength.title}</h3>
+            <p className="mt-3 text-sm leading-[1.6] text-ink-muted">{strength.summary}</p>
+            
+            <ul className="mt-6 space-y-2.5 text-[13px] text-ink-muted">
               {strength.evidence.map((item) => (
-                <li key={item} className="flex gap-2">
-                  <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-                  <span>{item}</span>
+                <li key={item} className="flex items-start gap-2.5">
+                  <span aria-hidden="true" className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand/40 group-hover:bg-brand transition-colors" />
+                  <span className="leading-[1.5]">{item}</span>
                 </li>
               ))}
             </ul>
-            <div className="mt-5 grid grid-cols-2 gap-2" aria-label={`${strength.title} 구조 단서`}>
+
+            {/* Token chips */}
+            <div className="mt-8 border-t border-line/50 pt-5 flex flex-wrap gap-2" aria-label={`${strength.title} 구조 단서`}>
               {strength.visualHint.map((hint) => (
-                <span key={hint} className="rounded-xs bg-muted px-2 py-1.5 text-xs font-medium text-soft">
+                <span key={hint} className="rounded-[4px] border border-line bg-page-soft/50 px-2 py-1 text-[11px] font-mono text-ink-muted">
                   {hint}
                 </span>
               ))}

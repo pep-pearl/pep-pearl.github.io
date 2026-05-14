@@ -4,16 +4,17 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        page: '#f6f8f4',
-        surface: '#ffffff',
-        muted: '#eef4ef',
-        ink: '#15201b',
-        soft: '#5c6f66',
-        faint: '#7c8b84',
-        line: '#d9e3dd',
-        accent: '#1f6b55',
-        accentSoft: '#dceee6',
-        accentStrong: '#144937',
+        page: '#F7FAF6',
+        'page-soft': '#EEF4EF',
+        surface: '#FFFFFF',
+        'surface-muted': '#F2F6F2',
+        ink: '#111A15',
+        'ink-muted': '#6F7B73',
+        line: '#DDE6DE',
+        'line-strong': '#BFCDBF',
+        brand: '#245C46',
+        'brand-dark': '#123326',
+        signal: '#B7F06A',
       },
       fontFamily: {
         sans: [
