@@ -91,7 +91,7 @@ export const strengths: Strength[] = [
     title: 'AI Agent Workflow',
     summary:
       'AI Agent를 단순 코드 생성기가 아니라 작업 기준을 명확히 하고 검토 가능한 결과물을 만들기 위한 협업 도구로 사용합니다.',
-    evidence: ['AGENTS.md', 'phase rules', 'prompt templates', 'human approval gates'],
+    evidence: ['AGENTS.md', 'phase rules', 'reusable skills', 'human approval gates'],
     visualHint: ['Research', 'Plan', 'Hold', 'Review'],
   },
 ]

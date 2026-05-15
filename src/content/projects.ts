@@ -111,7 +111,7 @@ export const workCases: WorkCase[] = [
     problem:
       'AI 도구를 기준 없이 사용하면 결과물의 일관성과 검증 가능성이 떨어지고, 기획과 개발, 리뷰 단계가 섞이면 공개 경계가 흐려질 수 있었습니다.',
     role:
-      'AGENTS.md, phase rules, prompt templates, review checklist를 통해 AI Agent가 참고할 기준과 사용자 승인 지점을 명확히 하는 흐름을 구성했습니다.',
+      'AGENTS.md, phase rules, reusable skills, review checklist를 통해 AI Agent가 참고할 기준과 사용자 승인 지점을 명확히 하는 흐름을 구성했습니다.',
     decisions: [
       'Interview -> Seed -> Execute -> Evaluate -> Evolve 흐름으로 프로젝트를 다룹니다.',
       '각 주요 단계는 Research -> Plan -> Hold -> Implement -> Review를 따릅니다.',

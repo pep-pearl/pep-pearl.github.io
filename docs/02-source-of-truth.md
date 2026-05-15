@@ -59,7 +59,7 @@ Hero variant:
 3. AI Agent Workflow
    - AGENTS.md
    - phase rules
-   - prompt templates
+   - reusable skills
    - review gates
    - Research -> Plan -> Hold -> Implement -> Review
    - human judgment as final authority

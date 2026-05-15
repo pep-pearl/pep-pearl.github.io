@@ -9,7 +9,6 @@ Personal career and portfolio site for Peppearl, built with Vite, React, TypeScr
 content/        Source notes for resume and selected work
 data/           Data examples
 docs/           Project knowledge base and review checklists
-prompts/        Optional Codex prompt templates
 public/         Static assets served by Vite
 rules/          Project-specific agent rules
 src/            Application source
