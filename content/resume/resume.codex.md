@@ -20,7 +20,7 @@
 - Phone: DO_NOT_PUBLISH
 - LinkedIn: [https://www.linkedin.com/in/nojam2ya](https://www.linkedin.com/in/nojam2ya)
 - Wanted: not used
-- Public resume PDF: `이혜주_FrontendEngineer.pdf`
+- Public resume PDF: `public/이혜주_FrontendEngineer.pdf`
 
 ```yaml
 public_name: Peppearl

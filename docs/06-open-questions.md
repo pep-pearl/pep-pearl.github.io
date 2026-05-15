@@ -4,9 +4,9 @@
 
 ## Confirmed Decisions
 
-- 공개용 PDF 이력서 파일명: `이혜주_FrontendEngineer.pdf`
+- 공개용 PDF 이력서 파일명: `public/이혜주_FrontendEngineer.pdf`
 - PDF 내부 내용은 사용자가 공개 가능하다고 확인했으므로 별도 내용 검사는 하지 않는다.
-- `dog_photo.png`는 프로필 이미지처럼 공개 사용 가능하다.
+- `public/images/dog_photo.png`는 프로필 이미지처럼 공개 사용 가능하다.
 - 회사명, 프로젝트명, 교육, 자격증은 공개 가능하다.
 - 프로젝트명 공개 가능: LH 재난관리 플랫폼, 스마트 하천 안전차단 시스템, 도시침수 및 재난 상황관리 시스템, 자사 솔루션 고도화 및 R&D.
 - 구체적인 성과 수치는 공개하지 않는다.
@@ -14,7 +14,7 @@
 - Blog: `https://jinjoo648.tistory.com/` 공개. 단, secondary link, footer, Related Writing 수준으로만 사용한다.
 - Wanted는 사용하지 않는다.
 - GitHub Pages 배포 형태는 user site `https://pep-pearl.github.io/`이며 Vite `base`는 `/`를 사용한다.
-- `dog_photo.png`는 About의 작은 profile visual로 사용한다.
+- `public/images/dog_photo.png`는 About의 작은 profile visual로 사용한다.
 - v1 motion은 CSS transition 중심으로 구현하고 Framer Motion은 사용하지 않는다.
 - 필요한 코드 스니펫은 사용자에게 요청하고, 제공이 어렵다면 다이어그램과 pseudo code로 대체한다.
 - 사이트 제작 중 이력서 내용이 `content/resume`에 없거나 추가 정보가 필요하다고 판단되면 사용자에게 인터뷰로 확인한다.
@@ -38,7 +38,7 @@
 
 ## Images / Assets
 
-- [x] 현재 저장소 루트에 `dog_photo.png`가 있으나, 실제 공개 사용 가능 여부와 최종 위치를 확인해야 한다.
+- [x] `public/images/dog_photo.png`를 공개용 profile visual로 사용한다.
 - [x] 강아지 사진을 About 카드와 footer 중 어디에 둘 것인가?
 - [x] 업무 화면 이미지는 사용하지 않는다는 기본 정책을 유지할 것인가?
 - [x] Figma 캡처는 사용하지 않는다는 기본 정책을 유지할 것인가?

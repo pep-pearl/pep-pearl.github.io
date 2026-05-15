@@ -17,7 +17,7 @@
 - 교육 이력
 - 자격증
 - 비밀 정보가 아닌 코드 일부
-- 공개용 PDF 이력서 다운로드: `이혜주_FrontendEngineer.pdf`
+- 공개용 PDF 이력서 다운로드: `public/이혜주_FrontendEngineer.pdf`
 
 ## 공개 불가 또는 사전 확인 필요
 
@@ -42,7 +42,7 @@
 
 ## PDF 이력서 정책
 
-사용자는 공개용 PDF 이력서를 `이혜주_FrontendEngineer.pdf`로 제공했다. PDF 내부 내용은 사용자가 공개 가능한 것으로 확인했으므로 별도 내용 검사는 요구하지 않는다.
+사용자는 공개용 PDF 이력서를 `public/이혜주_FrontendEngineer.pdf`로 제공했다. PDF 내부 내용은 사용자가 공개 가능한 것으로 확인했으므로 별도 내용 검사는 요구하지 않는다.
 
 개발 단계에서 할 일:
 

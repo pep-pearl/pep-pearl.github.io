@@ -110,7 +110,7 @@ workflow:
 
 ```md
 더 자세한 경력은 PDF 이력서에서 확인할 수 있습니다.
-공개용 PDF 파일명은 `이혜주_FrontendEngineer.pdf`입니다.
+공개용 PDF 파일명은 `public/이혜주_FrontendEngineer.pdf`입니다.
 ```
 
 ## Contact CTA

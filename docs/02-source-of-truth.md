@@ -15,8 +15,8 @@
 - Wanted: 사용하지 않음
 - Phone: 공개 금지
 - Face photo: 사용 금지
-- Profile visual: `dog_photo.png`를 About의 작은 profile visual로 사용한다. Hero와 footer에서는 사용하지 않는다.
-- Public resume PDF: 저장소 루트의 `이혜주_FrontendEngineer.pdf`
+- Profile visual: `public/images/dog_photo.png`를 About의 작은 profile visual로 사용한다. Hero와 footer에서는 사용하지 않는다.
+- Public resume PDF: `public/이혜주_FrontendEngineer.pdf`
 
 ## 핵심 포지셔닝
 

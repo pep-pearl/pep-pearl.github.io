@@ -1,75 +1,33 @@
-# Peppearl Career Site Agent Pack
+# Peppearl Career Site
 
-This pack contains the operating instructions, rules, prompts, and planning seed for building Peppearl's personal career site with Codex.
+Personal career and portfolio site for Peppearl, built with Vite, React, TypeScript, and TailwindCSS for GitHub Pages.
 
-## Files
-
-```txt
-AGENTS.md
-rules/
-  planning.rules.md
-  content.rules.md
-  design.rules.md
-  development.rules.md
-  review.rules.md
-prompts/
-  00-interview.prompt.md
-  01-planning.prompt.md
-  02-design.prompt.md
-  03-development.prompt.md
-  04-review.prompt.md
-specs/
-  planning-seed.md
-```
-
-## Recommended Workflow
-
-Use these prompts in order:
-
-1. `prompts/00-interview.prompt.md`
-2. `prompts/01-planning.prompt.md`
-3. `prompts/02-design.prompt.md`
-4. `prompts/03-development.prompt.md`
-5. `prompts/04-review.prompt.md`
-
-The workflow is:
+## Project Structure
 
 ```txt
-Interview → Seed → Design → Development → Review → Evolve
+.github/        GitHub Actions workflow
+content/        Source notes for resume and selected work
+data/           Data examples
+docs/           Project knowledge base and review checklists
+prompts/        Optional Codex prompt templates
+public/         Static assets served by Vite
+rules/          Project-specific agent rules
+src/            Application source
 ```
 
-At every phase boundary, review before continuing.
+Generated, local, and temporary outputs such as `dist/`, `node_modules/`, `.omx/`, `.codex/`, `.superpowers/`, and `temp/` are ignored.
 
-## Project Summary
+## Scripts
 
-Build a GitHub Pages personal career site for Peppearl.
+```bash
+pnpm install
+pnpm build
+pnpm dev
+```
 
-The site should combine:
-- Resume
-- Career description
-- Portfolio
-- Selected case studies
-- Contact CTA
+## Notes
 
-Main goal:
-- Position/interview proposals
-
-Core strengths:
-- Design System
-- Frontend Architecture
-- AI Agent Workflow
-
-Stack:
-- Vite
-- React
-- TypeScript
-- TailwindCSS
-- GitHub Pages
-
-## How to Use in Codex
-
-1. Put this pack at the root of the repository.
-2. Start Codex with the contents of `AGENTS.md` available.
-3. Run the prompts in order.
-4. Do not skip planning and design gates.
-5. Use review output as the next iteration input.
+- Public resume PDF lives in `public/`.
+- The dog profile image lives in `public/images/`.
+- Site content used by the app lives in `src/content/`.
+- Historical planning, design, review, mining, and temporary working files have been removed to keep the repository focused.

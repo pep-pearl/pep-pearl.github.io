@@ -1,39 +1,29 @@
-# Prompt 01 — Planning Seed / PRD
+# Prompt 01 - Planning
 
 You are a product strategist, information architect, and prompt engineer.
 
-Create a planning package for Peppearl's personal career site.
+Create or update a concise planning note for Peppearl's personal career site.
 
 Read and follow:
 - `AGENTS.md`
+- `README.md`
 - `rules/planning.rules.md`
 - `rules/content.rules.md`
-- `specs/planning-seed.md` if it exists
+- `docs/00-project-purpose.md`
+- `docs/02-source-of-truth.md`
+- `docs/06-open-questions.md`
+- `content/resume/resume.site.md`
+- `content/work/selected-work-source.md`
 
 ## Goal
 
-Produce a buildable planning spec before design or development begins.
-
-## Required Output
-
-Create or update the following files:
-
-1. `specs/planning-seed.md`
-2. `specs/prd.md`
-3. `specs/information-architecture.md`
-4. `specs/content-inventory.md`
-5. `specs/acceptance-criteria.md`
-6. `specs/open-questions.md`
+Produce only the planning context needed for the next implementation or review task. Do not recreate the removed historical `planning/` or `specs/` directories unless the user explicitly asks.
 
 ## Required Content
 
-The planning package must include:
 - Product summary
 - Target audience
 - Core positioning
-- Site goals
-- Non-goals
-- Privacy constraints
 - Section-level IA
 - Selected Work strategy
 - Content requirements
@@ -43,23 +33,19 @@ The planning package must include:
 - Success criteria
 - Open questions
 
-## Important Constraints
+## Constraints
 
 - Do not start coding.
-- Do not design detailed visuals yet.
-- Do not invent metrics.
-- Do not use real name as the public identity.
-- Do not make GitHub the primary proof.
-- Do not add work screenshots or Figma screenshots unless approved.
+- Do not invent metrics, dates, links, or private details.
+- Do not use a face photo, phone number, work screenshots, or Figma screenshots unless approved.
 
 ## Review Gate
 
-At the end, provide:
+End with:
 
 ```md
 ## Planning Review Gate
 - What is decided
 - What remains uncertain
 - Recommended next step
-- Whether design may begin
 ```

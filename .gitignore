@@ -1,6 +1,17 @@
-node_modules
-dist
-.pnpm-store
+node_modules/
+dist/
+.pnpm-store/
+
+# Local environment and logs
+*.local
+*.log
 preview.*.log
 .DS_Store
-*.local
+
+# Agent/runtime state
+.omx/
+.codex/
+.superpowers/
+
+# Temporary working artifacts
+temp/
