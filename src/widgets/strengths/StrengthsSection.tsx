@@ -3,7 +3,7 @@ import { Section, SectionHeading } from '../../shared/ui/Section'
 
 export function StrengthsSection() {
   return (
-    <Section id="strengths" className="bg-white/45">
+    <Section id="strengths" className="bg-surface/45">
       <SectionHeading
         id="strengths-title"
         title="Core Strengths"

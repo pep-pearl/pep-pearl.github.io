@@ -1,13 +1,13 @@
-import { AboutSection } from '../widgets/about/AboutSection'
-import { ContactSection } from '../widgets/contact/ContactSection'
-import { ExperienceSection } from '../widgets/experience/ExperienceSection'
-import { Footer } from '../widgets/footer/Footer'
-import { Header } from '../widgets/header/Header'
-import { HeroSection } from '../widgets/hero/HeroSection'
-import { ResumeSection } from '../widgets/resume/ResumeSection'
-import { SelectedWorkSection } from '../widgets/selected-work/SelectedWorkSection'
-import { StrengthsSection } from '../widgets/strengths/StrengthsSection'
-import { TechStackSection } from '../widgets/tech-stack/TechStackSection'
+import { AboutSection } from "../widgets/about/AboutSection";
+import { ContactSection } from "../widgets/contact/ContactSection";
+import { ExperienceSection } from "../widgets/experience/ExperienceSection";
+import { Footer } from "../widgets/footer/Footer";
+import { Header } from "../widgets/header/Header";
+import { HeroSection } from "../widgets/hero/HeroSection";
+import { ResumeSection } from "../widgets/resume/ResumeSection";
+import { SelectedWorkSection } from "../widgets/selected-work/SelectedWorkSection";
+import { StrengthsSection } from "../widgets/strengths/StrengthsSection";
+import { TechStackSection } from "../widgets/tech-stack/TechStackSection";
 
 export function App() {
   return (
@@ -31,5 +31,5 @@ export function App() {
       </main>
       <Footer />
     </>
-  )
+  );
 }

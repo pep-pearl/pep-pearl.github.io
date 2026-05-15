@@ -4,17 +4,17 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        page: '#F7FAF6',
-        'page-soft': '#EEF4EF',
-        surface: '#FFFFFF',
-        'surface-muted': '#F2F6F2',
-        ink: '#111A15',
-        'ink-muted': '#6F7B73',
-        line: '#DDE6DE',
-        'line-strong': '#BFCDBF',
-        brand: '#245C46',
-        'brand-dark': '#123326',
-        signal: '#B7F06A',
+        page: 'rgb(var(--color-page) / <alpha-value>)',
+        'page-soft': 'rgb(var(--color-page-soft) / <alpha-value>)',
+        surface: 'rgb(var(--color-surface) / <alpha-value>)',
+        'surface-muted': 'rgb(var(--color-surface-muted) / <alpha-value>)',
+        ink: 'rgb(var(--color-ink) / <alpha-value>)',
+        'ink-muted': 'rgb(var(--color-ink-muted) / <alpha-value>)',
+        line: 'rgb(var(--color-line) / <alpha-value>)',
+        'line-strong': 'rgb(var(--color-line-strong) / <alpha-value>)',
+        brand: 'rgb(var(--color-brand) / <alpha-value>)',
+        'brand-dark': 'rgb(var(--color-brand-dark) / <alpha-value>)',
+        signal: 'rgb(var(--color-signal) / <alpha-value>)',
       },
       fontFamily: {
         sans: [

@@ -11,6 +11,7 @@ const techLogos: Record<string, { src: string; label: string; fallback?: string 
   TailwindCSS: { src: 'https://cdn.simpleicons.org/tailwindcss/06B6D4', label: 'Tailwind CSS logo' },
   'styled-components': { src: 'https://cdn.simpleicons.org/styledcomponents/DB7093', label: 'styled-components logo' },
   'Headless UI': { src: 'https://cdn.simpleicons.org/headlessui/66E3FF', label: 'Headless UI logo' },
+  Figma: { src: 'https://cdn.simpleicons.org/figma/F24E1E', label: 'Figma logo' },
   'Feature-Sliced Design': {
     src: 'https://feature-sliced.design/img/brand/logo-primary.svg',
     label: 'Feature-Sliced Design logo',
@@ -72,7 +73,7 @@ export function TechStackSection() {
       <div className="mt-8 rounded-lg border border-line bg-surface p-4 sm:p-6 lg:p-8">
         <div className="grid gap-6 divide-y divide-line/60 lg:grid-cols-2 lg:gap-x-12 lg:divide-y-0 lg:gap-y-8">
           {techStackGroups.map((group) => (
-            <article key={group.title} className="pt-6 lg:pt-0 lg:border-t lg:border-line/60">
+            <article key={group.title} className="pt-6 lg:border-t lg:border-line/60 lg:pt-0">
               <div className="lg:pt-6">
                 <h3 className="text-[15px] font-semibold text-ink">{group.title}</h3>
                 <p className="mt-1 text-[13px] leading-[1.6] text-ink-muted">{group.note}</p>

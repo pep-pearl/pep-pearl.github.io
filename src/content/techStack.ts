@@ -4,7 +4,7 @@ export const techStackGroups: TechStackGroup[] = [
   {
     title: 'Frontend',
     note: '제품 UI 구현과 개발 환경의 기본 축입니다.',
-    items: ['React', 'TypeScript', 'JavaScript', 'Vite', 'TailwindCSS', 'styled-components', 'Headless UI'],
+    items: ['React', 'TypeScript', 'JavaScript', 'Vite', 'TailwindCSS', 'styled-components', 'Headless UI', 'Figma'],
   },
   {
     title: 'Architecture',
