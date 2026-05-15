@@ -78,4 +78,19 @@ export type WorkCase = {
     label: string
     href: string
   }>
+  demo?: {
+    label: string
+    href: string
+    ariaLabel?: string
+  }
+  uxDecisions?: Array<{
+    title: string
+    body: string
+  }>
+  codeEvidence?: Array<{
+    title: string
+    language: 'css' | 'html' | 'js'
+    code: string
+    note?: string
+  }>
 }

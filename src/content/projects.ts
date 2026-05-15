@@ -146,4 +146,81 @@ export const workCases: WorkCase[] = [
       },
     ],
   },
+  {
+    caseNumber: 'Case 04',
+    title: 'Trial Landing UI System Redesign',
+    memoryLine:
+      '제품 trial 랜딩을 BEM 클래스와 디자인 토큰 기반의 일관된 UI 시스템으로 재설계하고, 공개 가능한 live demo로 정리했습니다.',
+    summary:
+      '회사명과 민감 내용을 제거한 trial 페이지 리디자인 사례입니다. 화면의 인상만 보여주는 대신 typography, spacing, color, motion 토큰과 BEM 구조를 함께 보여주어 디자인 판단이 코드 구조로 이어지는 방식을 설명합니다.',
+    problem:
+      'trial 페이지는 첫 화면에서 제품의 신뢰와 가치를 빠르게 전달해야 하지만, 섹션이 늘어날수록 스타일이 단발성으로 흩어지면 유지보수성과 설득력이 동시에 약해질 수 있습니다.',
+    role:
+      'UI/UX 디자인 방향, 정보 구조, 시각 체계, BEM 클래스 구조, 디자인 토큰 설계는 직접 수행했습니다. AI는 디자인 방향에 영향을 주지 않았고, 애니메이션과 원 페이지 스크롤 구현 보조에만 제한적으로 사용했습니다.',
+    decisions: [
+      '제품 trial 흐름을 첫 화면, 핵심 기술, 비즈니스 이점, 문의 단계로 나누어 사용자가 가치를 순서대로 이해하도록 구성했습니다.',
+      'typography, spacing, radius, color, shadow, motion, layout token을 `:root`에 정리해 섹션별 스타일이 흩어지지 않도록 했습니다.',
+      'BEM 스타일 클래스명으로 landing-section, feature-section, support-environment 같은 섹션 책임을 읽을 수 있게 분리했습니다.',
+      '모션과 원 페이지 스크롤은 UX 판단을 대체하지 않고 섹션 전환과 주목 흐름을 보조하는 역할로 제한했습니다.',
+    ],
+    implementation: [
+      '정적 demo bundle을 `/portfolio01/index.html` 경로로 연결해 완성된 화면을 직접 확인할 수 있게 합니다.',
+      '`css` 토큰 발췌와 `html` BEM 구조 발췌를 함께 보여주어 시각 디자인이 구현 기준으로 이어지는 방식을 증명합니다.',
+      '회사 로고와 회사 내용은 제거된 public-safe demo로 다루며, 원본 업무 맥락을 추적할 수 있는 정보는 포트폴리오 본문에 쓰지 않습니다.',
+    ],
+    learned:
+      '랜딩 리디자인은 예쁜 화면을 만드는 데서 끝나지 않고, 반복되는 시각 판단을 토큰과 네이밍 구조로 남길 때 더 오래 유지되는 UI 시스템이 됩니다.',
+    tags: ['UI/UX Redesign', 'Design Tokens', 'BEM', 'Responsive UI', 'Public-safe Demo'],
+    visuals: [],
+    demo: {
+      label: 'Live demo 보기',
+      href: '/portfolio01/index.html',
+      ariaLabel: 'Trial Landing UI System Redesign live demo 열기',
+    },
+    uxDecisions: [
+      {
+        title: 'Trial-page hierarchy',
+        body:
+          '첫 화면에서 제품 성격과 CTA를 먼저 제시하고, 이후 기술 가치와 지원 환경, 문의 흐름을 배치해 trial 전환에 필요한 판단 순서를 만들었습니다.',
+      },
+      {
+        title: 'Tokenized consistency',
+        body:
+          '타입, 간격, 색상, radius, shadow, motion 값을 토큰으로 분리해 각 섹션이 독립적으로 보여도 하나의 제품 경험처럼 이어지게 했습니다.',
+      },
+      {
+        title: 'Motion as support',
+        body:
+          '스크롤 전환과 애니메이션은 정보 구조를 가리지 않도록 제한하고, 현재 섹션의 맥락과 다음 행동을 이해시키는 보조 장치로 사용했습니다.',
+      },
+    ],
+    codeEvidence: [
+      {
+        title: ':root design token excerpt',
+        language: 'css',
+        note:
+          '실제 demo의 토큰 구조를 축약한 예시입니다. 반복되는 시각 판단을 CSS 변수로 고정했습니다.',
+        code: `:root {
+  --space-4: 1rem;
+  --radius-lg: var(--space-4);
+  --color-brand: #5d57ff;
+  --motion-duration-section: 900ms;
+  --layout-hero-width: 72rem;
+}`,
+      },
+      {
+        title: 'BEM section structure excerpt',
+        language: 'html',
+        note:
+          '섹션, body, copy 영역의 책임을 클래스명에서 읽을 수 있도록 구성했습니다.',
+        code: `<section class="landing-section landing-section--feature fullpage__section">
+  <div class="landing-section__body fullpage__body feature-section">
+    <div class="landing-section__content feature-section__copy">
+      ...
+    </div>
+  </div>
+</section>`,
+      },
+    ],
+  },
 ]
