@@ -1,0 +1,43 @@
+{
+  "hash": "33ff540e",
+  "configHash": "aed1834d",
+  "lockfileHash": "94674666",
+  "browserHash": "09c79892",
+  "optimized": {
+    "react/jsx-dev-runtime": {
+      "src": "../../node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "639d3399",
+      "needsInterop": true
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "198d6c26",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "7b648103",
+      "needsInterop": true
+    },
+    "html2pdf.js": {
+      "src": "../../node_modules/.pnpm/html2pdf.js@0.14.0/node_modules/html2pdf.js/dist/html2pdf.js",
+      "file": "html2pdf__js.js",
+      "fileHash": "54367464",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-22MYDUMB": {
+      "file": "chunk-22MYDUMB.js"
+    },
+    "chunk-3HZZ6B4W": {
+      "file": "chunk-3HZZ6B4W.js"
+    },
+    "chunk-JVWSFFO4": {
+      "file": "chunk-JVWSFFO4.js"
+    }
+  }
+}

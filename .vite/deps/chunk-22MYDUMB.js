@@ -1,0 +1,23 @@
+import {
+  require_react_development
+} from "./chunk-3HZZ6B4W.js";
+import {
+  __commonJS
+} from "./chunk-JVWSFFO4.js";
+
+// node_modules/.pnpm/react@18.3.1/node_modules/react/index.js
+var require_react = __commonJS({
+  "node_modules/.pnpm/react@18.3.1/node_modules/react/index.js"(exports, module) {
+    "use strict";
+    if (false) {
+      module.exports = null;
+    } else {
+      module.exports = require_react_development();
+    }
+  }
+});
+
+export {
+  require_react
+};
+//# sourceMappingURL=chunk-22MYDUMB.js.map
