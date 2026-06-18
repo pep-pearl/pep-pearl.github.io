@@ -378,8 +378,8 @@ function App() {
               </p>
               <h1>이혜주</h1>
               <p className="hero-lead">
-                대시보드, 모니터링, 통계, GIS 화면처럼 정보량과 상태 변화가 많은
-                제품 UI를 개발하고 있습니다.
+                대시보드, 모니터링, 통계, 데이터 중심 UI 화면처럼 정보량과 상태
+                변화가 많은 제품 UI를 개발하고 있습니다.
               </p>
               <p className="hero-description">
                 주기적으로 갱신되는 데이터의 처리 범위를 조정하고,
@@ -462,8 +462,9 @@ function App() {
                 <p className="experience-role">주임 · Frontend Developer</p>
                 <div className="experience-intro">
                   <p>
-                    GIS 대시보드, 사내 운영 솔루션, 데스크톱 애플리케이션, 랜딩
-                    페이지 등의 프론트엔드 개발을 담당하고 있습니다.
+                    데이터 중심 UI, 대시보드, 사내 운영 솔루션, 데스크톱
+                    애플리케이션, 랜딩 페이지 등의 프론트엔드 개발을 담당하고
+                    있습니다.
                   </p>
                   <p>
                     대시보드, 모니터링, 통계, 지도 기반 화면처럼 정보량과 상태가
