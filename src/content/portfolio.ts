@@ -751,142 +751,142 @@ Panel       title     -        order   -          empty`,
 ];
 
 export const archiveItems: ArchiveItem[] = [
-  {
-    id: "single-flight",
-    title: "API 클라이언트와 토큰 갱신 싱글 플라이트",
-    tags: ["TypeScript", "Fetch API", "Authentication"],
-    intro: [
-      "여러 API 요청이 동시에 인증 만료 응답을 받았을 때 토큰 갱신 요청이 중복 실행되지 않도록 싱글 플라이트를 적용했습니다.",
-      "먼저 시작된 토큰 갱신 작업의 Promise를 저장하고, 같은 인증 설정을 사용하는 이후 요청은 새로운 갱신 요청을 보내지 않고 기존 Promise를 기다리도록 구성했습니다.",
-    ],
-    githubUrl:
-      "https://github.com/pep-pearl/joo-code/blob/main/src/api-client/README.md",
-    details: [
-      {
-        title: "동작 흐름",
-        blocks: [
-          {
-            type: "code",
-            code: `여러 API 요청
-      ↓
-동시에 인증 만료 확인
-      ↓
-최초 요청만 토큰 갱신 시작
-      ↓
-나머지 요청은 같은 Promise 대기
-      ↓
-갱신 완료 후 각 요청 재실행`,
-          },
-        ],
-      },
-      {
-        title: "배경",
-        blocks: [
-          {
-            type: "paragraph",
-            text: "한 화면에서 여러 API를 동시에 호출하는 경우 access token이 만료되면 각 요청이 거의 같은 시점에 인증 오류를 받을 수 있습니다.",
-          },
-          {
-            type: "paragraph",
-            text: "각 요청이 독립적으로 refresh API를 실행하면 토큰 갱신 요청이 중복됩니다. refresh token을 회전하는 서버에서는 먼저 실행된 요청 이후 나머지 갱신 요청이 실패할 수도 있습니다.",
-          },
-        ],
-      },
-      {
-        title: "구현",
-        blocks: [
-          {
-            type: "paragraph",
-            text: "진행 중인 토큰 갱신 작업을 Map에 저장했습니다.",
-          },
-          {
-            type: "paragraph",
-            text: "단순히 하나의 전역 Promise만 공유하지 않고 다음 설정을 조합해 갱신 작업의 키를 만들었습니다.",
-          },
-          {
-            type: "list",
-            items: [
-              "API 기본 주소",
-              "refresh API 경로",
-              "인증 방식",
-              "access token 저장 키",
-              "refresh token 저장 키",
-              "refresh token 전달 방식",
-            ],
-          },
-          {
-            type: "paragraph",
-            text: "같은 키를 사용하는 갱신 작업이 이미 존재하면 해당 Promise를 반환합니다.",
-          },
-          {
-            type: "paragraph",
-            text: "작업이 없을 때만 refresh API를 호출하고, 완료되거나 실패하면 저장된 Promise를 제거했습니다.",
-          },
-          {
-            type: "paragraph",
-            text: "이전 작업이 뒤늦게 종료되면서 새 작업을 삭제하지 않도록 현재 Map에 저장된 Promise와 동일한지도 확인했습니다.",
-          },
-          {
-            type: "paragraph",
-            text: "토큰 갱신이 끝나면 인증 오류가 발생했던 기존 요청을 한 번 다시 실행합니다.",
-          },
-        ],
-      },
-      {
-        title: "인증 환경 분리",
-        blocks: [
-          {
-            type: "paragraph",
-            text: "운영 환경에서는 Secure HttpOnly Cookie를 사용할 수 있고, 개발 환경에서는 localStorage의 Bearer token을 사용할 수 있도록 설정을 분리했습니다.",
-          },
-          {
-            type: "paragraph",
-            text: "refresh token을 cookie로 전달할지 request body에 포함할지, 응답에서 토큰을 읽는 경로가 무엇인지도 클라이언트 설정으로 변경할 수 있게 했습니다.",
-          },
-          {
-            type: "paragraph",
-            text: "인증 세션 만료와 사용자 비활성화는 별도 오류로 구분하고, 저장된 토큰 제거와 후속 처리를 외부 콜백으로 연결했습니다.",
-          },
-        ],
-      },
-      {
-        title: "함께 구성한 기능",
-        blocks: [
-          {
-            type: "list",
-            items: [
-              "GET, POST, PUT, PATCH, DELETE 메서드",
-              "요청 및 응답 제네릭 타입",
-              "query parameter 직렬화",
-              "JSON, FormData 요청 처리",
-              "요청 timeout과 AbortSignal 연결",
-              "공통 API 오류",
-              "인증 만료 후 요청 재실행",
-              "cookie와 localStorage 인증 설정",
-              "외부 fetch 구현 주입",
-            ],
-          },
-        ],
-      },
-      {
-        title: "판단",
-        blocks: [
-          {
-            type: "paragraph",
-            text: "싱글 플라이트를 단순한 전역 boolean으로 처리하면 대기 중인 요청이 갱신 완료 시점을 알기 어렵습니다.",
-          },
-          {
-            type: "paragraph",
-            text: "여러 API 클라이언트를 사용할 때 서로 관련 없는 인증 요청까지 하나로 묶일 수도 있습니다.",
-          },
-          {
-            type: "paragraph",
-            text: "진행 중인 Promise 자체를 공유하고 인증 설정별로 키를 분리하는 방식으로 구성했습니다.",
-          },
-        ],
-      },
-    ],
-  },
+  //   {
+  //     id: "single-flight",
+  //     title: "API 클라이언트와 토큰 갱신 싱글 플라이트",
+  //     tags: ["TypeScript", "Fetch API", "Authentication"],
+  //     intro: [
+  //       "여러 API 요청이 동시에 인증 만료 응답을 받았을 때 토큰 갱신 요청이 중복 실행되지 않도록 싱글 플라이트를 적용했습니다.",
+  //       "먼저 시작된 토큰 갱신 작업의 Promise를 저장하고, 같은 인증 설정을 사용하는 이후 요청은 새로운 갱신 요청을 보내지 않고 기존 Promise를 기다리도록 구성했습니다.",
+  //     ],
+  //     githubUrl:
+  //       "https://github.com/pep-pearl/joo-code/blob/main/src/api-client/README.md",
+  //     details: [
+  //       {
+  //         title: "동작 흐름",
+  //         blocks: [
+  //           {
+  //             type: "code",
+  //             code: `여러 API 요청
+  //       ↓
+  // 동시에 인증 만료 확인
+  //       ↓
+  // 최초 요청만 토큰 갱신 시작
+  //       ↓
+  // 나머지 요청은 같은 Promise 대기
+  //       ↓
+  // 갱신 완료 후 각 요청 재실행`,
+  //           },
+  //         ],
+  //       },
+  //       {
+  //         title: "배경",
+  //         blocks: [
+  //           {
+  //             type: "paragraph",
+  //             text: "한 화면에서 여러 API를 동시에 호출하는 경우 access token이 만료되면 각 요청이 거의 같은 시점에 인증 오류를 받을 수 있습니다.",
+  //           },
+  //           {
+  //             type: "paragraph",
+  //             text: "각 요청이 독립적으로 refresh API를 실행하면 토큰 갱신 요청이 중복됩니다. refresh token을 회전하는 서버에서는 먼저 실행된 요청 이후 나머지 갱신 요청이 실패할 수도 있습니다.",
+  //           },
+  //         ],
+  //       },
+  //       {
+  //         title: "구현",
+  //         blocks: [
+  //           {
+  //             type: "paragraph",
+  //             text: "진행 중인 토큰 갱신 작업을 Map에 저장했습니다.",
+  //           },
+  //           {
+  //             type: "paragraph",
+  //             text: "단순히 하나의 전역 Promise만 공유하지 않고 다음 설정을 조합해 갱신 작업의 키를 만들었습니다.",
+  //           },
+  //           {
+  //             type: "list",
+  //             items: [
+  //               "API 기본 주소",
+  //               "refresh API 경로",
+  //               "인증 방식",
+  //               "access token 저장 키",
+  //               "refresh token 저장 키",
+  //               "refresh token 전달 방식",
+  //             ],
+  //           },
+  //           {
+  //             type: "paragraph",
+  //             text: "같은 키를 사용하는 갱신 작업이 이미 존재하면 해당 Promise를 반환합니다.",
+  //           },
+  //           {
+  //             type: "paragraph",
+  //             text: "작업이 없을 때만 refresh API를 호출하고, 완료되거나 실패하면 저장된 Promise를 제거했습니다.",
+  //           },
+  //           {
+  //             type: "paragraph",
+  //             text: "이전 작업이 뒤늦게 종료되면서 새 작업을 삭제하지 않도록 현재 Map에 저장된 Promise와 동일한지도 확인했습니다.",
+  //           },
+  //           {
+  //             type: "paragraph",
+  //             text: "토큰 갱신이 끝나면 인증 오류가 발생했던 기존 요청을 한 번 다시 실행합니다.",
+  //           },
+  //         ],
+  //       },
+  //       {
+  //         title: "인증 환경 분리",
+  //         blocks: [
+  //           {
+  //             type: "paragraph",
+  //             text: "운영 환경에서는 Secure HttpOnly Cookie를 사용할 수 있고, 개발 환경에서는 localStorage의 Bearer token을 사용할 수 있도록 설정을 분리했습니다.",
+  //           },
+  //           {
+  //             type: "paragraph",
+  //             text: "refresh token을 cookie로 전달할지 request body에 포함할지, 응답에서 토큰을 읽는 경로가 무엇인지도 클라이언트 설정으로 변경할 수 있게 했습니다.",
+  //           },
+  //           {
+  //             type: "paragraph",
+  //             text: "인증 세션 만료와 사용자 비활성화는 별도 오류로 구분하고, 저장된 토큰 제거와 후속 처리를 외부 콜백으로 연결했습니다.",
+  //           },
+  //         ],
+  //       },
+  //       {
+  //         title: "함께 구성한 기능",
+  //         blocks: [
+  //           {
+  //             type: "list",
+  //             items: [
+  //               "GET, POST, PUT, PATCH, DELETE 메서드",
+  //               "요청 및 응답 제네릭 타입",
+  //               "query parameter 직렬화",
+  //               "JSON, FormData 요청 처리",
+  //               "요청 timeout과 AbortSignal 연결",
+  //               "공통 API 오류",
+  //               "인증 만료 후 요청 재실행",
+  //               "cookie와 localStorage 인증 설정",
+  //               "외부 fetch 구현 주입",
+  //             ],
+  //           },
+  //         ],
+  //       },
+  //       {
+  //         title: "판단",
+  //         blocks: [
+  //           {
+  //             type: "paragraph",
+  //             text: "싱글 플라이트를 단순한 전역 boolean으로 처리하면 대기 중인 요청이 갱신 완료 시점을 알기 어렵습니다.",
+  //           },
+  //           {
+  //             type: "paragraph",
+  //             text: "여러 API 클라이언트를 사용할 때 서로 관련 없는 인증 요청까지 하나로 묶일 수도 있습니다.",
+  //           },
+  //           {
+  //             type: "paragraph",
+  //             text: "진행 중인 Promise 자체를 공유하고 인증 설정별로 키를 분리하는 방식으로 구성했습니다.",
+  //           },
+  //         ],
+  //       },
+  //     ],
+  //   },
   {
     id: "openlayers-jsx",
     title: "OpenLayers JSX 인터페이스",
