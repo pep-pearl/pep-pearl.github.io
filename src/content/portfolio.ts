@@ -41,11 +41,12 @@ export const workItems: WorkItem[] = [
   {
     id: "gis-rendering",
     number: "01",
-    title: "주기적으로 갱신되는 GIS 데이터의 렌더링 범위 축소",
+    title:
+      "주기적으로 갱신되는 GIS 데이터의 처리 범위와 지도 feature 갱신 구조 개선",
     tags: ["React", "TypeScript", "OpenLayers"],
     intro: [
-      "GIS 관제 화면에서 응답 전체를 상태에 반영하던 구조를 객체 단위 갱신 방식으로 변경했습니다.",
-      "새로운 응답과 이전 값을 비교하고, 값이 달라진 객체를 사용하는 상태만 갱신하도록 구성했습니다. 이를 통해 주기적인 데이터 수신 시 발생하던 화면 정지 문제를 해결했습니다.",
+      "GIS 관제 화면에서 TanStack Query로 수신한 서버 응답 전체를 기준으로 지도 feature와 관련 UI가 함께 재처리되던 구조를, 객체 ID 기준 registry와 변경 비교를 이용해 추가·삭제·변경된 항목만 갱신하는 방식으로 조정했습니다.",
+      "새로운 응답과 이전 값을 비교하고, 값이 달라진 객체를 사용하는 상태만 갱신하도록 구성했습니다. 이를 통해 주기적인 데이터 수신 시 발생하던 화면 정지 현상을 완화했고, 사용자 피드백과 React DevTools 렌더링 하이라이트로 불필요한 갱신 감소를 확인했습니다.",
       "지도·목록·상세 패널·필터가 같은 데이터를 사용하더라도 각 화면이 필요한 범위만 갱신하도록 상태 흐름을 나눴습니다.",
     ],
     responsibilities: [
@@ -53,7 +54,7 @@ export const workItems: WorkItem[] = [
       "객체 단위 비교 로직 구현",
       "OpenLayers 객체와 React 상태 연결",
       "지도·목록·상세·필터 상태 정리",
-      "GIS 팝업 렌더링 경계 구성",
+      "GIS 팝업과 오버레이 처리 기준",
       "문제 재현과 수정",
     ],
     details: [
@@ -164,23 +165,23 @@ Selected object
         ],
       },
       {
-        title: "GIS 팝업 렌더링 경계",
+        title: "GIS 팝업과 오버레이 처리 기준",
         blocks: [
           {
             type: "paragraph",
-            text: "OpenLayers가 관리하는 지도 DOM과 React 컴포넌트 트리는 서로 다른 생명주기를 가집니다.",
+            text: "OpenLayers와 React가 각각 잘 관리할 수 있는 영역을 기준으로 팝업과 오버레이 처리 방식을 나눴습니다.",
           },
           {
             type: "paragraph",
-            text: "팝업 컨테이너는 OpenLayers Overlay가 관리하고, 내부 UI는 createPortal을 이용해 React 컴포넌트로 렌더링했습니다.",
+            text: "지도 좌표에 종속되고 pan, zoom, move에 따라 위치가 함께 변경되어야 하는 UI는 OpenLayers Overlay를 사용했습니다. 이 경우 위치 계산과 지도 위 배치는 OpenLayers에 맡기고, 필요한 경우 내부 UI만 React 컴포넌트로 렌더링했습니다.",
           },
           {
             type: "paragraph",
-            text: "이를 통해 지도 객체의 위치와 표시 여부는 OpenLayers에서 처리하고, 팝업 내부의 버튼·상태·이벤트는 React에서 관리했습니다.",
+            text: "반면 외부 패널의 열림 상태, 레이아웃 변화, React 컴포넌트 상태와 더 강하게 연결되는 소수의 UI는 지도 컨테이너 위에 React 컴포넌트 레이어로 구성했습니다. 이 경우 OpenLayers에서는 선택 객체나 좌표 정보만 받아오고, 표시 여부와 형태 변경은 React 상태로 관리했습니다.",
           },
           {
             type: "paragraph",
-            text: "팝업을 위해 별도의 React root를 반복해서 만들거나, 문자열 형태의 HTML을 직접 삽입하지 않도록 구성했습니다.",
+            text: "이를 통해 지도 좌표와 직접 연결되는 요소는 OpenLayers의 생명주기를 따르게 하고, 앱 상태와 상호작용이 중요한 UI는 React 안에서 관리할 수 있도록 분리했습니다.",
           },
         ],
       },
@@ -189,7 +190,7 @@ Selected object
         blocks: [
           {
             type: "paragraph",
-            text: "주기적인 데이터 갱신 시 발생하던 화면 정지 현상을 해소했습니다.",
+            text: "주기적인 데이터 갱신 시 사용자에게 보고되던 화면 정지 현상을 완화했습니다. 변경 후 React DevTools의 렌더링 하이라이트를 통해 외부 상태를 사용하는 UI 중심으로 갱신 범위가 줄어든 것을 확인했습니다.",
           },
           {
             type: "paragraph",
@@ -437,6 +438,10 @@ pnpm 모노레포
           },
           {
             type: "paragraph",
+            text: "아키텍처의 변경마다 다양한 피드백을 받으면서 모든 중복을 제거하는 것보다, 팀이 추적할 수 있는 의존성 범위 안에서 공통화할 대상을 정하는 쪽이 더 중요하다고 판단했습니다.",
+          },
+          {
+            type: "paragraph",
             text: "구조의 이름보다 변경 범위와 팀에서 추적할 수 있는 수준을 기준으로 판단했습니다.",
           },
         ],
@@ -446,7 +451,7 @@ pnpm 모노레포
   {
     id: "design-system",
     number: "03",
-    title: "디자인 토큰과 사내 UI 컴포넌트 체계 구축",
+    title: "디자인 가이드 기반 토큰 및 사내 UI 컴포넌트 체계 구축",
     tags: [
       "Figma",
       "React",
@@ -456,9 +461,9 @@ pnpm 모노레포
       "Storybook",
     ],
     intro: [
-      "프로젝트마다 달랐던 UI 기준을 정리하기 위해 Figma와 코드에서 함께 사용할 수 있는 디자인 토큰을 구성했습니다.",
-      "토큰을 기반으로 사내 UI 컴포넌트 라이브러리를 만들고, 개발자와 비개발자가 같은 컴포넌트를 이용해 화면과 프로토타입을 구성할 수 있도록 했습니다.",
-      "컴포넌트의 기본 형태뿐 아니라 hover, focus, disabled, error, empty 상태처럼 실제 화면에서 필요한 상태 기준도 함께 정리했습니다.",
+      "디자이너로 일했던 경험을 바탕으로 프로젝트마다 달라지던 UI 기준을 먼저 디자인 가이드로 정리했습니다.",
+      "색상, 간격, 크기, 타이포그래피, radius, 상태 표현 기준을 원시 팔레트와 의미 기반 토큰으로 나누고, Figma Styles·Variables와 CSS Custom Properties 기반 토큰으로 연결했습니다.",
+      "이후 토큰을 기반으로 React 공통 UI 컴포넌트를 구현하고, Storybook에서 default, hover, focus, disabled, error, empty 등 실제 화면에서 필요한 상태를 확인할 수 있도록 구성했습니다. Storybook은 컴포넌트 문서뿐 아니라 회의 중 UI 공유, 기획 문서용 화면 캡처, 신규 프로젝트 UI 기준 확인에도 사용했습니다.",
     ],
     responsibilities: [
       "Figma Styles와 Variables 구성",
@@ -642,7 +647,7 @@ Panel       title     -        order   -          empty`,
         blocks: [
           {
             type: "paragraph",
-            text: "디자인 시스템 자체를 별도 결과물로 만드는 것보다 실제 프로젝트에서 계속 사용할 수 있는 기준을 만드는 데 초점을 맞췄습니다.",
+            text: "디자인 가이드 기반 토큰 및 사내 UI 컴포넌트 체계 초기 구축하여 프로젝트에서 계속 사용할 수 있는 기준을 만드는 데 초점을 맞췄습니다.",
           },
           {
             type: "paragraph",
