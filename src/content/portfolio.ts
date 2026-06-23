@@ -9,6 +9,13 @@ export interface DetailSection {
   blocks: ContentBlock[];
 }
 
+export interface ShowcaseItem {
+  label: string;
+  title: string;
+  description: string;
+  images: { src: string; alt: string }[];
+}
+
 export interface WorkItem {
   id: string;
   number: string;
@@ -17,6 +24,7 @@ export interface WorkItem {
   intro: string[];
   responsibilities: string[];
   details: DetailSection[];
+  showcase?: ShowcaseItem[];
 }
 
 export interface ArchiveItem {
@@ -473,6 +481,64 @@ pnpm 모노레포
       "Storybook 문서화",
       "신규 프로젝트 적용",
     ],
+    showcase: [
+      {
+        label: "FOUNDATION",
+        title: "Typography · Spacing · Radius",
+        description:
+          "폰트 위계와 4px 단위의 크기·간격·모서리 기준을 하나의 foundation 규칙으로 정리했습니다.",
+        images: [
+          {
+            src: "/images/design-system/typography.webp",
+            alt: "Pretendard 글꼴 굵기와 크기 규칙을 정리한 디자인 가이드",
+          },
+          {
+            src: "/images/design-system/spacing-radius.webp",
+            alt: "크기, 간격, 모서리 반경 규칙을 정리한 디자인 가이드",
+          },
+        ],
+      },
+      {
+        label: "COMPONENT STATES",
+        title: "Button",
+        description:
+          "버튼의 normal, hover, focus 상태와 아이콘·토글 변형 기준을 정리했습니다.",
+        images: [
+          {
+            src: "/images/design-system/buttons.webp",
+            alt: "버튼의 normal, hover, focus 상태와 변형을 정리한 디자인 가이드",
+          },
+        ],
+      },
+      {
+        label: "FORM STATES",
+        title: "Text Input · Select",
+        description:
+          "입력 요소의 placeholder, focus, error, required 상태를 분리해 반복되는 판단 기준을 줄였습니다.",
+        images: [
+          {
+            src: "/images/design-system/text-input.webp",
+            alt: "텍스트 입력 요소의 placeholder, focus, error, required 상태 가이드",
+          },
+          {
+            src: "/images/design-system/select.webp",
+            alt: "선택 요소의 normal, focus, error, required 상태 가이드",
+          },
+        ],
+      },
+      {
+        label: "DATA UI",
+        title: "Table",
+        description:
+          "데이터 중심 화면에서 반복되는 테이블 구조와 상태별 변형 기준을 정리했습니다.",
+        images: [
+          {
+            src: "/images/design-system/table.webp",
+            alt: "데이터 테이블의 기본 구조와 변형 기준을 정리한 디자인 가이드",
+          },
+        ],
+      },
+    ],
     details: [
       {
         title: "배경",
@@ -756,142 +822,73 @@ Panel       title     -        order   -          empty`,
 ];
 
 export const archiveItems: ArchiveItem[] = [
-  //   {
-  //     id: "single-flight",
-  //     title: "API 클라이언트와 토큰 갱신 싱글 플라이트",
-  //     tags: ["TypeScript", "Fetch API", "Authentication"],
-  //     intro: [
-  //       "여러 API 요청이 동시에 인증 만료 응답을 받았을 때 토큰 갱신 요청이 중복 실행되지 않도록 싱글 플라이트를 적용했습니다.",
-  //       "먼저 시작된 토큰 갱신 작업의 Promise를 저장하고, 같은 인증 설정을 사용하는 이후 요청은 새로운 갱신 요청을 보내지 않고 기존 Promise를 기다리도록 구성했습니다.",
-  //     ],
-  //     githubUrl:
-  //       "https://github.com/pep-pearl/joo-code/blob/main/src/api-client/README.md",
-  //     details: [
-  //       {
-  //         title: "동작 흐름",
-  //         blocks: [
-  //           {
-  //             type: "code",
-  //             code: `여러 API 요청
-  //       ↓
-  // 동시에 인증 만료 확인
-  //       ↓
-  // 최초 요청만 토큰 갱신 시작
-  //       ↓
-  // 나머지 요청은 같은 Promise 대기
-  //       ↓
-  // 갱신 완료 후 각 요청 재실행`,
-  //           },
-  //         ],
-  //       },
-  //       {
-  //         title: "배경",
-  //         blocks: [
-  //           {
-  //             type: "paragraph",
-  //             text: "한 화면에서 여러 API를 동시에 호출하는 경우 access token이 만료되면 각 요청이 거의 같은 시점에 인증 오류를 받을 수 있습니다.",
-  //           },
-  //           {
-  //             type: "paragraph",
-  //             text: "각 요청이 독립적으로 refresh API를 실행하면 토큰 갱신 요청이 중복됩니다. refresh token을 회전하는 서버에서는 먼저 실행된 요청 이후 나머지 갱신 요청이 실패할 수도 있습니다.",
-  //           },
-  //         ],
-  //       },
-  //       {
-  //         title: "구현",
-  //         blocks: [
-  //           {
-  //             type: "paragraph",
-  //             text: "진행 중인 토큰 갱신 작업을 Map에 저장했습니다.",
-  //           },
-  //           {
-  //             type: "paragraph",
-  //             text: "단순히 하나의 전역 Promise만 공유하지 않고 다음 설정을 조합해 갱신 작업의 키를 만들었습니다.",
-  //           },
-  //           {
-  //             type: "list",
-  //             items: [
-  //               "API 기본 주소",
-  //               "refresh API 경로",
-  //               "인증 방식",
-  //               "access token 저장 키",
-  //               "refresh token 저장 키",
-  //               "refresh token 전달 방식",
-  //             ],
-  //           },
-  //           {
-  //             type: "paragraph",
-  //             text: "같은 키를 사용하는 갱신 작업이 이미 존재하면 해당 Promise를 반환합니다.",
-  //           },
-  //           {
-  //             type: "paragraph",
-  //             text: "작업이 없을 때만 refresh API를 호출하고, 완료되거나 실패하면 저장된 Promise를 제거했습니다.",
-  //           },
-  //           {
-  //             type: "paragraph",
-  //             text: "이전 작업이 뒤늦게 종료되면서 새 작업을 삭제하지 않도록 현재 Map에 저장된 Promise와 동일한지도 확인했습니다.",
-  //           },
-  //           {
-  //             type: "paragraph",
-  //             text: "토큰 갱신이 끝나면 인증 오류가 발생했던 기존 요청을 한 번 다시 실행합니다.",
-  //           },
-  //         ],
-  //       },
-  //       {
-  //         title: "인증 환경 분리",
-  //         blocks: [
-  //           {
-  //             type: "paragraph",
-  //             text: "운영 환경에서는 Secure HttpOnly Cookie를 사용할 수 있고, 개발 환경에서는 localStorage의 Bearer token을 사용할 수 있도록 설정을 분리했습니다.",
-  //           },
-  //           {
-  //             type: "paragraph",
-  //             text: "refresh token을 cookie로 전달할지 request body에 포함할지, 응답에서 토큰을 읽는 경로가 무엇인지도 클라이언트 설정으로 변경할 수 있게 했습니다.",
-  //           },
-  //           {
-  //             type: "paragraph",
-  //             text: "인증 세션 만료와 사용자 비활성화는 별도 오류로 구분하고, 저장된 토큰 제거와 후속 처리를 외부 콜백으로 연결했습니다.",
-  //           },
-  //         ],
-  //       },
-  //       {
-  //         title: "함께 구성한 기능",
-  //         blocks: [
-  //           {
-  //             type: "list",
-  //             items: [
-  //               "GET, POST, PUT, PATCH, DELETE 메서드",
-  //               "요청 및 응답 제네릭 타입",
-  //               "query parameter 직렬화",
-  //               "JSON, FormData 요청 처리",
-  //               "요청 timeout과 AbortSignal 연결",
-  //               "공통 API 오류",
-  //               "인증 만료 후 요청 재실행",
-  //               "cookie와 localStorage 인증 설정",
-  //               "외부 fetch 구현 주입",
-  //             ],
-  //           },
-  //         ],
-  //       },
-  //       {
-  //         title: "판단",
-  //         blocks: [
-  //           {
-  //             type: "paragraph",
-  //             text: "싱글 플라이트를 단순한 전역 boolean으로 처리하면 대기 중인 요청이 갱신 완료 시점을 알기 어렵습니다.",
-  //           },
-  //           {
-  //             type: "paragraph",
-  //             text: "여러 API 클라이언트를 사용할 때 서로 관련 없는 인증 요청까지 하나로 묶일 수도 있습니다.",
-  //           },
-  //           {
-  //             type: "paragraph",
-  //             text: "진행 중인 Promise 자체를 공유하고 인증 설정별로 키를 분리하는 방식으로 구성했습니다.",
-  //           },
-  //         ],
-  //       },
-  //     ],
-  //   },
+  {
+    id: "api-client-auth",
+    title: "Axios 공통 API 클라이언트와 인증 만료 처리",
+    tags: ["Axios", "TypeScript", "Authentication"],
+    intro: [
+      "Axios 기반 공통 API 클라이언트에서 인증 만료, timeout, 공통 오류 처리 흐름을 Interceptor를 통해 정리했습니다.",
+      "HTTP 401 또는 응답 payload의 인증 만료 상태를 감지하면 refresh 요청 후 원 요청을 1회 재시도하도록 구성했습니다.",
+      "진행 중인 refresh Promise를 공유해 중복 refresh 요청을 줄였습니다.",
+    ],
+    details: [
+      {
+        title: "처리 흐름",
+        blocks: [
+          {
+            type: "code",
+            code: `API 요청
+     ↓
+인증 만료 응답 확인
+     ↓
+refresh 요청
+     ↓
+새 토큰으로 원 요청 1회 재시도`,
+          },
+        ],
+      },
+      {
+        title: "코드 일부",
+        blocks: [
+          {
+            type: "paragraph",
+            text: "진행 중인 refresh 요청이 있으면 새 요청을 만들지 않고 같은 Promise를 반환하는 부분입니다. 설명을 위해 주변 처리는 줄였습니다.",
+          },
+          {
+            type: "code",
+            code: `let refreshPromise: Promise<string> | null = null;
+
+function requestRefresh(): Promise<string> {
+  if (!refreshPromise) {
+    refreshPromise = doRefresh().finally(() => {
+      refreshPromise = null;
+    });
+  }
+
+  return refreshPromise;
+}`,
+          },
+        ],
+      },
+      {
+        title: "응답 처리",
+        blocks: [
+          {
+            type: "paragraph",
+            text: "HTTP 401과 서버가 응답 payload의 status로 전달하는 인증 만료 상태를 함께 확인했습니다.",
+          },
+          {
+            type: "paragraph",
+            text: "같은 요청이 반복되지 않도록 _retry 값을 확인하고, refresh가 끝나면 Authorization 헤더를 갱신해 원 요청을 한 번 다시 보냈습니다.",
+          },
+          {
+            type: "paragraph",
+            text: "refresh가 실패하면 오류를 호출한 쪽으로 전달하도록 했습니다.",
+          },
+        ],
+      },
+    ],
+  },
   {
     id: "openlayers-jsx",
     title: "OpenLayers JSX 인터페이스",
@@ -977,7 +974,7 @@ export const skillGroups = [
   },
   {
     label: "State & Data",
-    items: ["TanStack Query", "Jotai", "Zustand", "Fetch API"],
+    items: ["TanStack Query", "Jotai", "Zustand", "Axios", "Fetch API"],
   },
   {
     label: "Test & Tooling",
@@ -1012,5 +1009,5 @@ export const aboutParagraphs = [
   "처음 선택한 구조를 유지하기보다 팀이 사용하는 과정에서 발생한 문제를 확인하고 구조를 다시 단순화했습니다. 현재는 모든 프로젝트를 하나의 형태로 맞추기보다 공통으로 관리할 코드와 프로젝트 안에 남겨야 할 코드를 구분하고 유연하게 작업하고 있습니다.",
   "GIS 화면에서는 OpenLayers와 React의 상태가 중복되지 않도록 역할을 나누고, 데이터가 갱신되는 범위와 UI가 다시 그려지는 범위를 분리하는 방식으로 작업하고 있습니다.",
   "지도, 목록, 팝업, 상세 패널과 필터가 연결되는 경우에는 각 화면이 별도의 원본 상태를 갖지 않도록 기준이 되는 상태를 정리합니다.",
-  "API 요청에서는 인증, 오류, timeout과 같은 반복 처리를 공통 클라이언트로 분리하고, 여러 요청이 동시에 인증 만료를 확인해도 토큰 갱신이 중복되지 않도록 구성했습니다.",
+  "API 요청에서는 인증, 오류, timeout과 같은 반복 처리를 Axios 공통 클라이언트로 분리하고, 진행 중인 refresh Promise를 공유해 중복 요청을 줄였습니다.",
 ];

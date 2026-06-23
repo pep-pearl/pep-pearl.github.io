@@ -3,6 +3,7 @@ import type {
   ArchiveItem,
   ContentBlock,
   DetailSection,
+  ShowcaseItem,
   WorkItem,
 } from "./content/portfolio";
 import {
@@ -178,6 +179,53 @@ function DetailContent({ sections }: { sections: DetailSection[] }) {
   );
 }
 
+function WorkShowcase({ items }: { items: ShowcaseItem[] }) {
+  return (
+    <section className="work-showcase" aria-labelledby="design-guide-heading">
+      <div className="showcase-heading">
+        <p className="eyebrow">PUBLIC EXCERPT / REDACTED</p>
+        <h4 id="design-guide-heading">디자인 가이드에서 코드 컴포넌트까지</h4>
+        <p>
+          공개 가능한 항목만 선별했습니다. 원본의 색상값과 프로젝트 식별 정보는
+          제거했습니다.
+        </p>
+      </div>
+
+      <div className="showcase-list">
+        {items.map((item) => (
+          <figure className="showcase-item" key={item.label}>
+            <figcaption>
+              <span>{item.label}</span>
+              <h5>{item.title}</h5>
+              <p>{item.description}</p>
+            </figcaption>
+            <div
+              className={`showcase-images ${item.images.length > 1 ? "multiple" : ""}`}
+            >
+              {item.images.map((image) => (
+                <a
+                  href={image.src}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`${image.alt} 크게 보기`}
+                  key={image.src}
+                >
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </a>
+              ))}
+            </div>
+          </figure>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function WorkCard({ item }: { item: WorkItem }) {
   return (
     <details className="work-card" id={item.id}>
@@ -220,6 +268,7 @@ function WorkCard({ item }: { item: WorkItem }) {
         </div>
       </summary>
       <DetailContent sections={item.details} />
+      {item.showcase && <WorkShowcase items={item.showcase} />}
     </details>
   );
 }
